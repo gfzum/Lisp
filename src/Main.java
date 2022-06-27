@@ -1,10 +1,11 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
+
+    static Set<String> keyWords = new HashSet<>(Arrays.asList("+", "-", "*", "/", "and", "or", "not", "&", "|", "~"
+                                                                "define", "set", "lambda", "begin"));
 
     public static void main(String[] args) {
 
@@ -21,6 +22,9 @@ public class Main {
 
         tree = evaluate(tree, env);
         tree.show();
+
+
+
     }
 
     /*
@@ -142,7 +146,7 @@ public class Main {
                 i = j ;
             } else if (exp.charAt(i) == ' ') continue;
 
-                //读取数据
+            //读取数据
             else {
                 int j = i;
                 for (; j < exp.length(); j++) {
